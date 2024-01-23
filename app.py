@@ -2,7 +2,7 @@
 import json
 
 from flask import Flask, render_template, request, url_for, redirect, jsonify, flash, request
-from flask_mysqldb import MySQL
+#from flask_mysqldb import MySQL
 import sqlite3
 from sqlite3 import Error
 #import createTable
