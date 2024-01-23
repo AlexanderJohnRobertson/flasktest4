@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html lang="en">
+<link rel="stylesheet" href="/static/style.css">
+<head>
+     <script src="/static/rolloverimage.js"></script>
+    <meta charset="UTF-8">
+    <title>My Age</title>
+</head>
+<body>
+{% extends 'base.html' %}
+
+{% block content %}
+<h1 align="center">About Me</h1>
+ <button onclick="document.location='/'">Index</button>
+<ul>
+    <li>My name is Alexander John Robertson</li>
+    <li>I am {{age}} years old.</li>
+    <li>I Study Advanced Computing MSc at the University of Suffolk.</li>
+    <li>My hobbies are travel, exploring, technology, gaming, TV shows, movies.</li>
+    <li>These are photos of places I have travelled to.</li>
+    <li>There are selfies of me in some of the travel photos.</li>
+    <li>I have created a javascript file that makes the flag of the country, state, province or region appear when you hover the mouse cursor over the images.</li>
+    <li>I have created a cascading stylesheet file to set the background and font colours and organise the images into a neat and ordered layout.</li>
+    <li>The web app is running on a Python file using Flask.</li>
+</ul>
+
+<h2>Places I have visited.</h2>
+<h3>Mainland China, Hong Kong, Macau and Taiwan</h3>
+
+
+
+ <div class="row">
+  <div class="column">
+    <img src="/static/pictures/china1.jpg" border="0px"
+width="300px" height="200px"
+onMouseOver="MouseRollover(this, y='/static/pictures/china.jpg')"
+    onMouseOut="MouseOut(this, x='/static/pictures/china1.jpg')" />
+  </div>
+  <div class="column">
+    <img src="/static/pictures/china2.jpg" border="0px"
+width="300px" height="200px"
+onMouseOver="MouseRollover(this, y='/static/pictures/china.jpg')"
+onMouseOut="MouseOut(this, x='/static/pictures/china2.jpg')" />
+  </div>
+     <div class="column">
+    <img src="/static/pictures/china3.jpg" border="0px"
+width="300px" height="200px"
+onMouseOver="MouseRollover(this, y='/static/pictures/china.jpg')"
+onMouseOut="MouseOut(this, x='/static/pictures/china3.jpg')" />
+  </div>
+     <div class="column">
+    <img src="/static/pictures/china4.jpg" border="0px"
+width="300px" height="200px"
+onMouseOver="MouseRollover(this, y='/static/pictures/china.jpg')"
+onMouseOut="MouseOut(this, x='/static/pictures/china4.jpg')" />
+  </div>
+     <div class="column">
+    <img src="/static/pictures/china5.jpg" border="0px"
+width="300px" height="200px"
+onMouseOver="MouseRollover(this, y='/static/pictures/china.jpg')"
+onMouseOut="MouseOut(this, x='/static/pictures/china5.jpg')" />
+  </div>
+  <div class="column">
+    <img src="/static/pictures/china6.jpg" border="0px"
+width="300px" height="200px"
+onMouseOver="MouseRollover(this, y='/static/pictures/china.jpg')"
+onMouseOut="MouseOut(this, x='/static/pictures/china6.jpg')" />
+  </div>
+     <div class="column">
+    <img src="/static/pictures/china7.jpg" border="0px"
+width="300px" height="200px"
+onMouseOver="MouseRollover(this, y='/static/pictures/china.jpg')"
+onMouseOut="MouseOut(this, x='/static/pictures/china7.jpg')" />
+  </div>
+<div class="column">
+    <img src="/static/pictures/china8.jpg" border="0px"
+width="300px" height="200px"
+onMouseOver="MouseRollover(this, y='/static/pictures/china.jpg')"
+onMouseOut="MouseOut(this, x='/static/pictures/china8.jpg')" />
+  </div>
+     <div class="column">
+    <img src="/static/pictures/china9.jpg" border="0px"
+width="300px" height="200px"
+onMouseOver="MouseRollover(this, y='/static/pictures/china.jpg')"
+onMouseOut="MouseOut(this, x='/static/pictures/china9.jpg')" />
+  </div>
+     <div class="column">
+    <img src="/static/pictures/china10.jpg" border="0px"
+width="300px" height="200px"
+onMouseOver="MouseRollover(this, y='/static/pictures/china.jpg')"
+onMouseOut="MouseOut(this, x='/static/pictures/china10.jpg')" />
+  </div>
+     <div class="column">
+    <img src="/static/pictures/china11.jpg" border="0px"
+width="300px" height="200px"
+onMouseOver="MouseRollover(this, y='/static/pictures/china.jpg')"
+onMouseOut="MouseOut(this, x='/static/pictures/china11.jpg')" />
+  </div>
+     <div class="column">
+    <img src="/static/pictures/china12.jpg" border="0px"
+width="300px" height="200px"
+onMouseOver="MouseRollover(this, y='/static/pictures/china.jpg')"
+onMouseOut="MouseOut(this, x='/static/pictures/china12.jpg')" />
+  </div>
+     <div class="column">
+    <img src="/static/pictures/china13.jpg" border="0px"
+width="300px" height="200px"
+onMouseOver="MouseRollover(this, y='/static/pictures/china.jpg')"
+onMouseOut="MouseOut(this, x='/static/pictures/china13.jpg')" />
+  </div>
+     <div class="column">
+    <img src="/static/pictures/china14.jpg" border="0px"
+width="300px" height="200px"
+onMouseOver="MouseRollover(this, y='/static/pictures/china.jpg')"
+onMouseOut="MouseOut(this, x='/static/pictures/china14.jpg')" />
+  </div>
+     <div class="column">
+    <img src="/static/pictures/china15.jpg" border="0px"
+width="300px" height="200px"
+onMouseOver="MouseRollover(this, y='/static/pictures/china.jpg')"
+onMouseOut="MouseOut(this, x='/static/pictures/china15.jpg')" />
+  </div>
+     <div class="column">
+    <img src="/static/pictures/china16.jpg" border="0px"
+width="300px" height="200px"
+onMouseOver="MouseRollover(this, y='/static/pictures/china.jpg')"
+onMouseOut="MouseOut(this, x='/static/pictures/china16.jpg')" />
+  </div>
+     <div class="column">
+    <img src="/static/pictures/china17.jpg" border="0px"
+width="300px" height="200px"
+onMouseOver="MouseRollover(this, y='/static/pictures/china.jpg')"
+onMouseOut="MouseOut(this, x='/static/pictures/china17.jpg')" />
+  </div>
+     <div class="column">
+    <img src="/static/pictures/china18.jpg" border="0px"
+width="300px" height="200px"
+onMouseOver="MouseRollover(this, y='/static/pictures/china.jpg')"
+onMouseOut="MouseOut(this, x='/static/pictures/china18.jpg')" />
+  </div>
+     <div class="column">
+    <img src="/static/pictures/china19.jpg" border="0px"
+width="300px" height="200px"
+onMouseOver="MouseRollover(this, y='/static/pictures/china.jpg')"
+onMouseOut="MouseOut(this, x='/static/pictures/china19.jpg')" />
+  </div>
+     <div class="column">
+    <img src="/static/pictures/china20.jpg" border="0px"
+width="300px" height="200px"
+onMouseOver="MouseRollover(this, y='/static/pictures/china.jpg')"
+onMouseOut="MouseOut(this, x='/static/pictures/china20.jpg')" />
+  </div>
+     <div class="column">
+    <img src="/static/pictures/china21.jpg" border="0px"
+width="300px" height="200px"
+onMouseOver="MouseRollover(this, y='/static/pictures/china.jpg')"
+onMouseOut="MouseOut(this, x='/static/pictures/china21.jpg')" />
+  </div>
+     <div class="column">
+    <img src="/static/pictures/taiwan1.jpg" border="0px"
+width="300px" height="200px"
+onMouseOver="MouseRollover(this, y='/static/pictures/taiwan.png')"
+onMouseOut="MouseOut(this, x='/static/pictures/taiwan1.jpg')" />
+  </div>
+     <div class="column">
+    <img src="/static/pictures/taiwan2.jpg" border="0px"
+width="300px" height="200px"
+onMouseOver="MouseRollover(this, y='/static/pictures/taiwan.png')"
+onMouseOut="MouseOut(this, x='/static/pictures/taiwan2.jpg')" />
+  </div>
+          <div class="column">
+    <img src="/static/pictures/taiwan3.jpg" border="0px"
+width="300px" height="200px"
+onMouseOver="MouseRollover(this, y='/static/pictures/taiwan.png')"
+onMouseOut="MouseOut(this, x='/static/pictures/taiwan3.jpg')" />
+  </div>
+          <div class="column">
+    <img src="/static/pictures/taiwan4.jpg" border="0px"
+width="300px" height="200px"
+onMouseOver="MouseRollover(this, y='/static/pictures/taiwan.png')"
+onMouseOut="MouseOut(this, x='/static/pictures/taiwan4.jpg')" />
+  </div>
+          <div class="column">
+    <img src="/static/pictures/taiwan5.jpg" border="0px"
+width="300px" height="200px"
+onMouseOver="MouseRollover(this, y='/static/pictures/taiwan.png')"
+onMouseOut="MouseOut(this, x='/static/pictures/taiwan5.jpg')" />
+  </div>
+          <div class="column">
+    <img src="/static/pictures/taiwan6.jpg" border="0px"
+width="300px" height="200px"
+onMouseOver="MouseRollover(this, y='/static/pictures/taiwan.png')"
+onMouseOut="MouseOut(this, x='/static/pictures/taiwan6.jpg')" />
+  </div>
+          <div class="column">
+    <img src="/static/pictures/taiwan7.jpg" border="0px"
+width="300px" height="200px"
+onMouseOver="MouseRollover(this, y='/static/pictures/taiwan.png')"
+onMouseOut="MouseOut(this, x='/static/pictures/taiwan7.jpg')" />
+  </div>
+          <div class="column">
+    <img src="/static/pictures/taiwan8.jpg" border="0px"
+width="300px" height="200px"
+onMouseOver="MouseRollover(this, y='/static/pictures/taiwan.png')"
+onMouseOut="MouseOut(this, x='/static/pictures/taiwan8.jpg')" />
+  </div>
+          <div class="column">
+    <img src="/static/pictures/taiwan9.jpg" border="0px"
+width="300px" height="200px"
+onMouseOver="MouseRollover(this, y='/static/pictures/taiwan.png')"
+onMouseOut="MouseOut(this, x='/static/pictures/taiwan9.jpg')" />
+  </div>
+          <div class="column">
+    <img src="/static/pictures/taiwan11.jpg" border="0px"
+width="300px" height="200px"
+onMouseOver="MouseRollover(this, y='/static/pictures/taiwan.png')"
+onMouseOut="MouseOut(this, x='/static/pictures/taiwan11.jpg')" />
+  </div>
+          <div class="column">
+    <img src="/static/pictures/taiwan12.jpg" border="0px"
+width="300px" height="200px"
+onMouseOver="MouseRollover(this, y='/static/pictures/taiwan.png')"
+onMouseOut="MouseOut(this, x='/static/pictures/taiwan12.jpg')" />
+  </div>
+          <div class="column">
+    <img src="/static/pictures/hongkong1.jpg" border="0px"
+width="300px" height="200px"
+onMouseOver="MouseRollover(this, y='/static/pictures/hongkong.jpeg')"
+onMouseOut="MouseOut(this, x='/static/pictures/hongkong1.jpg')" />
+  </div>
+               <div class="column">
+    <img src="/static/pictures/hongkong2.jpg" border="0px"
+width="300px" height="200px"
+onMouseOver="MouseRollover(this, y='/static/pictures/hongkong.jpeg')"
+onMouseOut="MouseOut(this, x='/static/pictures/hongkong2.jpg')" />
+  </div>
+               <div class="column">
+    <img src="/static/pictures/hongkong3.jpg" border="0px"
+width="300px" height="200px"
+onMouseOver="MouseRollover(this, y='/static/pictures/hongkong.jpeg')"
+onMouseOut="MouseOut(this, x='/static/pictures/hongkong3.jpg')" />
+  </div>
+               <div class="column">
+    <img src="/static/pictures/hongkong4.jpg" border="0px"
+width="300px" height="200px"
+onMouseOver="MouseRollover(this, y='/static/pictures/hongkong.jpeg')"
+onMouseOut="MouseOut(this, x='/static/pictures/hongkong4.jpg')" />
+  </div>
+               <div class="column">
+    <img src="/static/pictures/hongkong5.jpg" border="0px"
+width="300px" height="200px"
+onMouseOver="MouseRollover(this, y='/static/pictures/hongkong.jpeg')"
+onMouseOut="MouseOut(this, x='/static/pictures/hongkong5.jpg')" />
+  </div>
+               <div class="column">
+    <img src="/static/pictures/hongkong6.jpg" border="0px"
+width="300px" height="200px"
+onMouseOver="MouseRollover(this, y='/static/pictures/hongkong.jpeg')"
+onMouseOut="MouseOut(this, x='/static/pictures/hongkong6.jpg')" />
+  </div>
+               <div class="column">
+    <img src="/static/pictures/hongkong7.jpg" border="0px"
+width="300px" height="200px"
+onMouseOver="MouseRollover(this, y='/static/pictures/hongkong.jpeg')"
+onMouseOut="MouseOut(this, x='/static/pictures/hongkong7.jpg')" />
+  </div>
+               <div class="column">
+    <img src="/static/pictures/hongkong8.jpg" border="0px"
+width="300px" height="200px"
+onMouseOver="MouseRollover(this, y='/static/pictures/hongkong.jpeg')"
+onMouseOut="MouseOut(this, x='/static/pictures/hongkong8.jpg')" />
+  </div>
+               <div class="column">
+    <img src="/static/pictures/hongkong9.jpg" border="0px"
+width="300px" height="200px"
+onMouseOver="MouseRollover(this, y='/static/pictures/hongkong.jpeg')"
+onMouseOut="MouseOut(this, x='/static/pictures/hongkong9.jpg')" />
+  </div>
+               <div class="column">
+    <img src="/static/pictures/hongkong10.jpg" border="0px"
+width="300px" height="200px"
+onMouseOver="MouseRollover(this, y='/static/pictures/hongkong.jpeg')"
+onMouseOut="MouseOut(this, x='/static/pictures/hongkong10.jpg')" />
+  </div>
+               <div class="column">
+    <img src="/static/pictures/hongkong11.jpg" border="0px"
+width="300px" height="200px"
+onMouseOver="MouseRollover(this, y='/static/pictures/hongkong.jpeg')"
+onMouseOut="MouseOut(this, x='/static/pictures/hongkong11.jpg')" />
+  </div>
+               <div class="column">
+    <img src="/static/pictures/macau1.jpg" border="0px"
+width="300px" height="200px"
+onMouseOver="MouseRollover(this, y='/static/pictures/macau.jpg')"
+onMouseOut="MouseOut(this, x='/static/pictures/macau1.jpg')" />
+  </div>
+                <div class="column">
+    <img src="/static/pictures/macau2.jpg" border="0px"
+width="300px" height="200px"
+onMouseOver="MouseRollover(this, y='/static/pictures/macau.jpg')"
+onMouseOut="MouseOut(this, x='/static/pictures/macau2.jpg')" />
+  </div>
+                    <div class="column">
+    <img src="/static/pictures/macau3.jpg" border="0px"
+width="300px" height="200px"
+onMouseOver="MouseRollover(this, y='/static/pictures/macau.jpg')"
+onMouseOut="MouseOut(this, x='/static/pictures/macau3.jpg')" />
+  </div>
+                    <div class="column">
+    <img src="/static/pictures/macau4.jpg" border="0px"
+width="300px" height="200px"
+onMouseOver="MouseRollover(this, y='/static/pictures/macau.jpg')"
+onMouseOut="MouseOut(this, x='/static/pictures/macau4.jpg')" />
+  </div>
+</div>
+<h3>Japan</h3>
+<div class="row">
+  <div class="column">
+    <img src="/static/pictures/japan1.jpg" border="0px"
+width="300px" height="200px"
+onMouseOver="MouseRollover(this, y='/static/pictures/japan.webp')"
+onMouseOut="MouseOut(this, x='/static/pictures/japan1.jpg')" />
+  </div>
+  <div class="column">
+    <img src="/static/pictures/japan2.jpg" border="0px"
+width="300px" height="200px"
+onMouseOver="MouseRollover(this, y='/static/pictures/japan.webp')"
+onMouseOut="MouseOut(this, x='/static/pictures/japan2.jpg')" />
+  </div>
+        <div class="column">
+        <img src="/static/pictures/japan3.jpg" border="0px"
+width="300px" height="200px"
+onMouseOver="MouseRollover(this, y='/static/pictures/japan.webp')"
+onMouseOut="MouseOut(this, x='/static/pictures/japan3.jpg')" />
+  </div>
+        <div class="column">
+        <img src="/static/pictures/japan4.jpg" border="0px"
+width="300px" height="200px"
+onMouseOver="MouseRollover(this, y='/static/pictures/japan.webp')"
+onMouseOut="MouseOut(this, x='/static/pictures/japan4.jpg')" />
+        </div>
+        <div class="column">
+        <img src="/static/pictures/japan5.jpg" border="0px"
+width="300px" height="200px"
+onMouseOver="MouseRollover(this, y='/static/pictures/japan.webp')"
+onMouseOut="MouseOut(this, x='/static/pictures/japan5.jpg')" />
+        </div>
+        <div class="column">
+        <img src="/static/pictures/japan6.jpg" border="0px"
+width="300px" height="200px"
+onMouseOver="MouseRollover(this, y='/static/pictures/japan.webp')"
+onMouseOut="MouseOut(this, x='/static/pictures/japan6.jpg')" />
+        </div>
+        <div class="column">
+        <img src="/static/pictures/japan7.jpg" border="0px"
+width="300px" height="200px"
+onMouseOver="MouseRollover(this, y='/static/pictures/japan.webp')"
+onMouseOut="MouseOut(this, x='/static/pictures/japan7.jpg')" />
+        </div>
+        <div class="column">
+        <img src="/static/pictures/japan8.jpg" border="0px"
+width="300px" height="200px"
+onMouseOver="MouseRollover(this, y='/static/pictures/japan.webp')"
+onMouseOut="MouseOut(this, x='/static/pictures/japan8.jpg')" />
+        </div>
+        <div class="column">
+        <img src="/static/pictures/japan9.jpg" border="0px"
+width="300px" height="200px"
+onMouseOver="MouseRollover(this, y='/static/pictures/japan.webp')"
+onMouseOut="MouseOut(this, x='/static/pictures/japan9.jpg')" />
+        </div>
+        <div class="column">
+        <img src="/static/pictures/japan10.jpg" border="0px"
+width="300px" height="200px"
+onMouseOver="MouseRollover(this, y='/static/pictures/japan.webp')"
+onMouseOut="MouseOut(this, x='/static/pictures/japan10.jpg')" />
+        </div>
+        <div class="column">
+        <img src="/static/pictures/japan11.jpg" border="0px"
+width="300px" height="200px"
+onMouseOver="MouseRollover(this, y='/static/pictures/japan.webp')"
+onMouseOut="MouseOut(this, x='/static/pictures/japan11.jpg')" />
+        </div>
+        <div class="column">
+        <img src="/static/pictures/japan12.jpg" border="0px"
+width="300px" height="200px"
+onMouseOver="MouseRollover(this, y='/static/pictures/japan.webp')"
+onMouseOut="MouseOut(this, x='/static/pictures/japan12.jpg')" />
+        </div>
+        <div class="column">
+        <img src="/static/pictures/japan13.jpg" border="0px"
+width="300px" height="200px"
+onMouseOver="MouseRollover(this, y='/static/pictures/japan.webp')"
+
+onMouseOut="MouseOut(this, x='/static/pictures/japan13.jpg')" />
+        </div>
+        <div class="column">
+        <img src="/static/pictures/japan14.jpg" border="0px"
+width="300px" height="200px"
+onMouseOver="MouseRollover(this, y='/static/pictures/japan.webp')"
+             onMouseOut="MouseOut(this, x='/static/pictures/japan14.jpg')" />
+        </div>
+        <div class="column">
+        <img src="/static/pictures/japan15.jpg" border="0px"
+width="300px" height="200px"
+onMouseOver="MouseRollover(this, y='/static/pictures/japan.webp')"
+             onMouseOut="MouseOut(this, x='/static/pictures/japan15.jpg')" />
+        </div>
+        <div class="column">
+        <img src="/static/pictures/japan16.jpg" border="0px"
+width="300px" height="200px"
+onMouseOver="MouseRollover(this, y='/static/pictures/japan.webp')"
+             onMouseOut="MouseOut(this, x='/static/pictures/japan16.jpg')" />
+        </div>
+        <div class="column">
+        <img src="/static/pictures/japan17.jpg" border="0px"
+width="300px" height="200px"
+onMouseOver="MouseRollover(this, y='/static/pictures/japan.webp')"
+             onMouseOut="MouseOut(this, x='/static/pictures/japan17.jpg')" />
+        </div>
+
+
+</div>
+<h3>South Korea</h3>
+<div class="row">
+  <div class="column">
+    <img src="/static/pictures/southkorea1.jpg" border="0px"
+width="300px" height="200px"
+onMouseOver="MouseRollover(this, y='/static/pictures/southkorea.png')"
+onMouseOut="MouseOut(this, x='/static/pictures/southkorea1.jpg')" />
+  </div>
+  <div class="column">
+    <img src="/static/pictures/southkorea2.jpg" border="0px"
+width="300px" height="200px"
+onMouseOver="MouseRollover(this, y='/static/pictures/southkorea.png')"
+         onMouseOut="MouseOut(this, x='/static/pictures/southkorea2.jpg')" />
+    </div>
+    <div class="column">
+    <img src="/static/pictures/southkorea3.jpg" border="0px"
+width="300px" height="200px"
+onMouseOver="MouseRollover(this, y='/static/pictures/southkorea.png')"
+         onMouseOut="MouseOut(this, x='/static/pictures/southkorea3.jpg')" />
+    </div>
+    <div class="column">
+    <img src="/static/pictures/southkorea4.jpg" border="0px"
+width="300px" height="200px"
+onMouseOver="MouseRollover(this, y='/static/pictures/southkorea.png')"
+         onMouseOut="MouseOut(this, x='/static/pictures/southkorea4.jpg')" />
+    </div>
+    <div class="column">
+    <img src="/static/pictures/southkorea5.jpg" border="0px"
+width="300px" height="200px"
+onMouseOver="MouseRollover(this, y='/static/pictures/southkorea.png')"
+         onMouseOut="MouseOut(this, x='/static/pictures/southkorea5.jpg')" />
+    </div>
+    <div class="column">
+    <img src="/static/pictures/southkorea6.jpg" border="0px"
+width="300px" height="200px"
+onMouseOver="MouseRollover(this, y='/static/pictures/southkorea.png')"
+         onMouseOut="MouseOut(this, x='/static/pictures/southkorea6.jpg')" />
+    </div>
+    <div class="column">
+    <img src="/static/pictures/southkorea7.jpg" border="0px"
+width="300px" height="200px"
+onMouseOver="MouseRollover(this, y='/static/pictures/southkorea.png')"
+         onMouseOut="MouseOut(this, x='/static/pictures/southkorea7.jpg')" />
+    </div>
+    <div class="column">
+    <img src="/static/pictures/southkorea8.jpg" border="0px"
+width="300px" height="200px"
+onMouseOver="MouseRollover(this, y='/static/pictures/southkorea.png')"
+         onMouseOut="MouseOut(this, x='/static/pictures/southkorea8.jpg')" />
+    </div>
+    <div class="column">
+    <img src="/static/pictures/southkorea9.jpg" border="0px"
+width="300px" height="200px"
+onMouseOver="MouseRollover(this, y='/static/pictures/southkorea.png')"
+         onMouseOut="MouseOut(this, x='/static/pictures/southkorea9.jpg')" />
+    </div>
+    <div class="column">
+    <img src="/static/pictures/southkorea10.jpg" border="0px"
+width="300px" height="200px"
+onMouseOver="MouseRollover(this, y='/static/pictures/southkorea.png')"
+         onMouseOut="MouseOut(this, x='/static/pictures/southkorea10.jpg')" />
+    </div>
+    <div class="column">
+    <img src="/static/pictures/southkorea11.jpg" border="0px"
+width="300px" height="200px"
+onMouseOver="MouseRollover(this, y='/static/pictures/southkorea.png')"
+         onMouseOut="MouseOut(this, x='/static/pictures/southkorea11.jpg')" />
+    </div>
+    <div class="column">
+    <img src="/static/pictures/southkorea12.jpg" border="0px"
+width="300px" height="200px"
+onMouseOver="MouseRollover(this, y='/static/pictures/southkorea.png')"
+         onMouseOut="MouseOut(this, x='/static/pictures/southkorea12.jpg')" />
+    </div>
+    <div class="column">
+    <img src="/static/pictures/southkorea13.jpg" border="0px"
+width="300px" height="200px"
+onMouseOver="MouseRollover(this, y='/static/pictures/southkorea.png')"
+         onMouseOut="MouseOut(this, x='/static/pictures/southkorea13.jpg')" />
+    </div>
+    <div class="column">
+    <img src="/static/pictures/southkorea14.jpg" border="0px"
+width="300px" height="200px"
+onMouseOver="MouseRollover(this, y='/static/pictures/southkorea.png')"
+         onMouseOut="MouseOut(this, x='/static/pictures/southkorea14.jpg')" />
+    </div>
+    <div class="column">
+    <img src="/static/pictures/southkorea15.jpg" border="0px"
+width="300px" height="200px"
+onMouseOver="MouseRollover(this, y='/static/pictures/southkorea.png')"
+onMouseOut="MouseOut(this, x='/static/pictures/southkorea15.jpg')" />
+    </div>
+</div>
+<h3>Germany</h3>
+<div class="row">
+  <div class="column">
+    <img src="/static/pictures/germany1.jpg" border="0px"
+width="300px" height="200px"
+onMouseOver="MouseRollover(this, y='/static/pictures/germany.jpeg')"
+onMouseOut="MouseOut(this, x='/static/pictures/germany1.jpg')" />
+  </div>
+  <div class="column">
+    <img src="/static/pictures/germany2.jpg" border="0px"
+width="300px" height="200px"
+onMouseOver="MouseRollover(this, y='/static/pictures/germany.jpeg')"
+onMouseOut="MouseOut(this, x='/static/pictures/germany2.jpg')" />
+  </div>
+        <div class="column">
+    <img src="/static/pictures/germany3.jpg" border="0px"
+width="300px" height="200px"
+onMouseOver="MouseRollover(this, y='/static/pictures/germany.jpeg')"
+onMouseOut="MouseOut(this, x='/static/pictures/germany3.jpg')" />
+  </div>
+        <div class="column">
+    <img src="/static/pictures/germany4.jpg" border="0px"
+width="300px" height="200px"
+onMouseOver="MouseRollover(this, y='/static/pictures/germany.jpeg')"
+onMouseOut="MouseOut(this, x='/static/pictures/germany4.jpg')" />
+  </div>
+        <div class="column">
+    <img src="/static/pictures/germany5.jpg" border="0px"
+width="300px" height="200px"
+onMouseOver="MouseRollover(this, y='/static/pictures/germany.jpeg')"
+onMouseOut="MouseOut(this, x='/static/pictures/germany5.jpg')" />
+  </div>
+        <div class="column">
+    <img src="/static/pictures/germany6.jpg" border="0px"
+width="300px" height="200px"
+onMouseOver="MouseRollover(this, y='/static/pictures/germany.jpeg')"
+onMouseOut="MouseOut(this, x='/static/pictures/germany6.jpg')" />
+  </div>
+        <div class="column">
+    <img src="/static/pictures/germany7.jpg" border="0px"
+width="300px" height="200px"
+onMouseOver="MouseRollover(this, y='/static/pictures/germany.jpeg')"
+onMouseOut="MouseOut(this, x='/static/pictures/germany7.jpg')" />
+  </div>
+        <div class="column">
+    <img src="/static/pictures/germany8.jpg" border="0px"
+width="300px" height="200px"
+onMouseOver="MouseRollover(this, y='/static/pictures/germany.jpeg')"
+onMouseOut="MouseOut(this, x='/static/pictures/germany8.jpg')" />
+  </div>
+        <div class="column">
+    <img src="/static/pictures/germany9.jpg" border="0px"
+width="300px" height="200px"
+onMouseOver="MouseRollover(this, y='/static/pictures/germany.jpeg')"
+onMouseOut="MouseOut(this, x='/static/pictures/germany9.jpg')" />
+  </div>
+        <div class="column">
+    <img src="/static/pictures/germany10.jpg" border="0px"
+width="300px" height="200px"
+onMouseOver="MouseRollover(this, y='/static/pictures/germany.jpeg')"
+onMouseOut="MouseOut(this, x='/static/pictures/germany10.jpg')" />
+  </div>
+        <div class="column">
+    <img src="/static/pictures/germany11.jpg" border="0px"
+width="300px" height="200px"
+onMouseOver="MouseRollover(this, y='/static/pictures/germany.jpeg')"
+onMouseOut="MouseOut(this, x='/static/pictures/germany11.jpg')" />
+  </div>
+        <div class="column">
+    <img src="/static/pictures/germany12.jpg" border="0px"
+width="300px" height="200px"
+onMouseOver="MouseRollover(this, y='/static/pictures/germany.jpeg')"
+onMouseOut="MouseOut(this, x='/static/pictures/germany12.jpg')" />
+  </div>
+        <div class="column">
+    <img src="/static/pictures/germany13.jpg" border="0px"
+width="300px" height="200px"
+onMouseOver="MouseRollover(this, y='/static/pictures/germany.jpeg')"
+onMouseOut="MouseOut(this, x='/static/pictures/germany13.jpg')" />
+  </div>
+</div>
+<h3>France</h3>
+<div class="row">
+  <div class="column">
+    <img src="/static/pictures/france1.jpg" border="0px"
+width="300px" height="200px"
+onMouseOver="MouseRollover(this, y='/static/pictures/france.png')"
+onMouseOut="MouseOut(this, x='/static/pictures/france1.jpg')" />
+  </div>
+  <div class="column">
+    <img src="/static/pictures/france2.jpg" border="0px"
+width="300px" height="200px"
+onMouseOver="MouseRollover(this, y='/static/pictures/france.png')"
+onMouseOut="MouseOut(this, x='/static/pictures/france2.jpg')" />
+  </div>
+        <div class="column">
+    <img src="/static/pictures/france3.jpg" border="0px"
+width="300px" height="200px"
+onMouseOver="MouseRollover(this, y='/static/pictures/france.png')"
+onMouseOut="MouseOut(this, x='/static/pictures/france3.jpg')" />
+  </div>
+        <div class="column">
+    <img src="/static/pictures/france4.jpg" border="0px"
+width="300px" height="200px"
+onMouseOver="MouseRollover(this, y='/static/pictures/france.png')"
+onMouseOut="MouseOut(this, x='/static/pictures/france4.jpg')" />
+  </div>
+        <div class="column">
+    <img src="/static/pictures/france5.jpg" border="0px"
+width="300px" height="200px"
+onMouseOver="MouseRollover(this, y='/static/pictures/france.png')"
+onMouseOut="MouseOut(this, x='/static/pictures/france5.jpg')" />
+  </div>
+        <div class="column">
+    <img src="/static/pictures/france6.jpg" border="0px"
+width="300px" height="200px"
+onMouseOver="MouseRollover(this, y='/static/pictures/france.png')"
+onMouseOut="MouseOut(this, x='/static/pictures/france6.jpg')" />
+  </div>
+        <div class="column">
+    <img src="/static/pictures/france7.jpg" border="0px"
+width="300px" height="200px"
+onMouseOver="MouseRollover(this, y='/static/pictures/france.png')"
+onMouseOut="MouseOut(this, x='/static/pictures/france7.jpg')" />
+  </div>
+</div>
+<h3>Belgium</h3>
+<div class="row">
+  <div class="column">
+    <img src="/static/pictures/belgium1.jpg" border="0px"
+width="300px" height="200px"
+onMouseOver="MouseRollover(this, y='/static/pictures/belgium.jpeg')"
+onMouseOut="MouseOut(this, x='/static/pictures/belgium1.jpg')" />
+  </div>
+  <div class="column">
+    <img src="/static/pictures/belgium2.jpg" border="0px"
+width="300px" height="200px"
+onMouseOver="MouseRollover(this, y='/static/pictures/belgium.jpeg')"
+onMouseOut="MouseOut(this, x='/static/pictures/belgium2.jpg')" />
+  </div>
+</div>
+
+<h3>Netherlands</h3>
+<div class="row">
+  <div class="column">
+    <img src="/static/pictures/netherlands1.jpg" border="0px"
+width="300px" height="200px"
+onMouseOver="MouseRollover(this, y='/static/pictures/netherlands.jpeg')"
+onMouseOut="MouseOut(this, x='/static/pictures/netherlands1.jpg')" />
+  </div>
+  <div class="column">
+    <img src="/static/pictures/netherlands2.jpg" border="0px"
+width="300px" height="200px"
+onMouseOver="MouseRollover(this, y='/static/pictures/netherlands.jpeg')"
+onMouseOut="MouseOut(this, x='/static/pictures/netherlands2.jpg')" />
+  </div>
+        <div class="column">
+    <img src="/static/pictures/netherlands3.jpg" border="0px"
+width="300px" height="200px"
+onMouseOver="MouseRollover(this, y='/static/pictures/netherlands.jpeg')"
+onMouseOut="MouseOut(this, x='/static/pictures/netherlands3.jpg')" />
+  </div>
+        <div class="column">
+    <img src="/static/pictures/netherlands4.jpg" border="0px"
+width="300px" height="200px"
+onMouseOver="MouseRollover(this, y='/static/pictures/netherlands.jpeg')"
+onMouseOut="MouseOut(this, x='/static/pictures/netherlands4.jpg')" />
+  </div>
+        <div class="column">
+    <img src="/static/pictures/netherlands5.jpg" border="0px"
+width="300px" height="200px"
+onMouseOver="MouseRollover(this, y='/static/pictures/netherlands.jpeg')"
+onMouseOut="MouseOut(this, x='/static/pictures/netherlands5.jpg')" />
+  </div>
+</div>
+<h3>Italy and Vatican City</h3>
+<div class="row">
+  <div class="column">
+    <img src="/static/pictures/italy1.jpg" border="0px"
+width="300px" height="200px"
+onMouseOver="MouseRollover(this, y='/static/pictures/italy.jpeg')"
+onMouseOut="MouseOut(this, x='/static/pictures/italy1.jpg')" />
+  </div>
+  <div class="column">
+    <img src="/static/pictures/italy2.jpg" border="0px"
+width="300px" height="200px"
+onMouseOver="MouseRollover(this, y='/static/pictures/italy.jpeg')"
+onMouseOut="MouseOut(this, x='/static/pictures/italy2.jpg')" />
+  </div>
+        <div class="column">
+    <img src="/static/pictures/italy3.jpg" border="0px"
+width="300px" height="200px"
+onMouseOver="MouseRollover(this, y='/static/pictures/italy.jpeg')"
+onMouseOut="MouseOut(this, x='/static/pictures/italy3.jpg')" />
+  </div>
+        <div class="column">
+    <img src="/static/pictures/italy4.jpg" border="0px"
+width="300px" height="200px"
+onMouseOver="MouseRollover(this, y='/static/pictures/italy.jpeg')"
+onMouseOut="MouseOut(this, x='/static/pictures/italy4.jpg')" />
+  </div>
+        <div class="column">
+    <img src="/static/pictures/italy5.jpg" border="0px"
+width="300px" height="200px"
+onMouseOver="MouseRollover(this, y='/static/pictures/italy.jpeg')"
+onMouseOut="MouseOut(this, x='/static/pictures/italy5.jpg')" />
+  </div>
+        <div class="column">
+    <img src="/static/pictures/italy6.jpg" border="0px"
+width="300px" height="200px"
+onMouseOver="MouseRollover(this, y='/static/pictures/italy.jpeg')"
+onMouseOut="MouseOut(this, x='/static/pictures/italy6.jpg')" />
+  </div>
+    <div class="column">
+    <img src="/static/pictures/vatican1.jpg" border="0px"
+width="300px" height="200px"
+onMouseOver="MouseRollover(this, y='/static/pictures/vatican.jpg')"
+onMouseOut="MouseOut(this, x='/static/pictures/vatican1.jpg')" />
+  </div>
+</div>
+<h3>United States of America</h3>
+<div class="row">
+  <div class="column">
+    <img src="/static/pictures/usa1.jpg" border="0px"
+width="300px" height="200px"
+onMouseOver="MouseRollover(this, y='/static/pictures/usa.jpg')"
+onMouseOut="MouseOut(this, x='/static/pictures/usa1.jpg')" />
+  </div>
+  <div class="column">
+    <img src="/static/pictures/usa2.jpg" border="0px"
+width="300px" height="200px"
+onMouseOver="MouseRollover(this, y='/static/pictures/usa.jpg')"
+onMouseOut="MouseOut(this, x='/static/pictures/usa2.jpg')" />
+  </div>
+        <div class="column">
+    <img src="/static/pictures/usa3.jpg" border="0px"
+width="300px" height="200px"
+onMouseOver="MouseRollover(this, y='/static/pictures/usa.jpg')"
+onMouseOut="MouseOut(this, x='/static/pictures/usa3.jpg')" />
+  </div>
+        <div class="column">
+    <img src="/static/pictures/usa4.jpg" border="0px"
+width="300px" height="200px"
+onMouseOver="MouseRollover(this, y='/static/pictures/usa.jpg')"
+onMouseOut="MouseOut(this, x='/static/pictures/usa4.jpg')" />
+  </div>
+        <div class="column">
+    <img src="/static/pictures/usa5.jpg" border="0px"
+width="300px" height="200px"
+onMouseOver="MouseRollover(this, y='/static/pictures/usa.jpg')"
+onMouseOut="MouseOut(this, x='/static/pictures/usa5.jpg')" />
+  </div>
+        <div class="column">
+    <img src="/static/pictures/usa6.jpg" border="0px"
+width="300px" height="200px"
+onMouseOver="MouseRollover(this, y='/static/pictures/usa.jpg')"
+onMouseOut="MouseOut(this, x='/static/pictures/usa6.jpg')" />
+  </div>
+        <div class="column">
+    <img src="/static/pictures/usa7.jpg" border="0px"
+width="300px" height="200px"
+onMouseOver="MouseRollover(this, y='/static/pictures/usa.jpg')"
+onMouseOut="MouseOut(this, x='/static/pictures/usa7.jpg')" />
+  </div>
+</div>
+{% endblock %}
+</body>
+</html>
+

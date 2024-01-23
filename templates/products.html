@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Products</title>
+    <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Hello Flask</h1>
+    <div class="table-responsive">
+        <table border="1"  class="table table-condensed">
+               <tr>
+        <th>ProductID</th>
+        <th>Product Name</th>
+        <th>Quantity</th>
+                   <th>Price</th>
+                   <th>Image</th>
+      </tr>
+        {% for row in data1 %}
+            <tr>
+                <td>{{ row[0] }}</td>
+                <td>{{ row[1] }}</td>
+                <td>{{ row[2] }}</td>
+             <td>{{ row[3] }}</td>
+                <td><img src="{{ row[4] }}" border="0px"
+width="300px" height="200px"></td>
+            </tr>
+        {% endfor %}
+            </table>
+    </div>
+{% endblock %}
+</body>
+</html>
