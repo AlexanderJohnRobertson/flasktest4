@@ -7,7 +7,7 @@ import sqlite3
 from sqlite3 import Error
 #import createTable
 app = Flask(__name__)
-#app.config['SECRET_KEY'] = 'your secret key'
+app.config['SECRET_KEY'] = 'your secret key'
 
 
 '''messages = [{'title': 'Message One',
