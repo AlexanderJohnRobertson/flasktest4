@@ -1,14 +1,41 @@
 # Import libraries and modules
 import json
-
+#import uuid
+#import logging
 from flask import Flask, render_template, request, url_for, redirect, jsonify, flash, request
 #from flask_mysqldb import MySQL
 import sqlite3
 from sqlite3 import Error
 #import createTable
+#from flask_sessionstore import Session
+#from flask_session_captcha import FlaskSessionCaptcha
+#from pymongo import MongoClient
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'your secret key'
 
+'''# Database Config
+# If your mongodb runs on a different port
+# change 27017 to that port number
+mongoClient = MongoClient('localhost', 27017)
+
+# Captcha Configuration
+app.config["SECRET_KEY"] = uuid.uuid4()
+app.config['CAPTCHA_ENABLE'] = True
+
+# Set 5 as character length in captcha
+app.config['CAPTCHA_LENGTH'] = 5
+
+# Set the captcha height and width
+app.config['CAPTCHA_WIDTH'] = 160
+app.config['CAPTCHA_HEIGHT'] = 60
+app.config['SESSION_MONGODB'] = mongoClient
+app.config['SESSION_TYPE'] = 'mongodb'
+
+# Enables server session
+Session(app)
+
+# Initialize FlaskSessionCaptcha
+captcha = FlaskSessionCaptcha(app)'''
 
 '''messages = [{'title': 'Message One',
              'content': 'Message One Content'},
@@ -172,6 +199,57 @@ def loginsuccess(globalUsername):
     globalUsername = globalUsername
     return render_template('loginsuccess.html', globalUsername = globalUsername)
 
+@app.route('/createaccount', methods=['GET', 'POST'])
+def createaccount():
+    if request.method == 'POST':
+        username = request.form['username']
+        password = request.form['password']
+        confirmPassword = request.form['confirmPassword']
+        if not username:
+            flash('Username is required!')
+        elif not password:
+            flash('Password is required!')
+        else:
+            try:
+                database = r"database.db"
+                conn = None
+                conn = sqlite3.connect(database)
+                cur = conn.cursor()
+                #cur = mysql.connection.cursor()
+                #cur.execute('SELECT * FROM users WHERE username = %s AND password = %s', (username, password))
+                cur.execute('SELECT * FROM users WHERE username = ?', (username,))
+                user = cur.fetchall()
+                cur.close()
+                if user:
+                    flash('Username already exists!')
+                else:
+                    if password != confirmPassword:
+                        flash('Passwords do not match!')
+                    else:
+                        cur = conn.cursor()
+                        cur.execute('INSERT INTO users VALUES(?, ?)', (username, password))
+                        conn.commit()
+                        cur.close()
+                        print(username)
+                        return redirect(url_for('createaccountsuccess', globalUsername = username))
+            except IndexError:
+                flash('Username or Password is incorrect!')
+    return render_template('createaccount.html')
+
+@app.route('/createaccountsuccess/<globalUsername>')
+def createaccountsuccess(globalUsername):
+    globalUsername = globalUsername
+    return render_template('createaccountsuccess.html', globalUsername = globalUsername)
+
+'''@app.route('/testcaptcha', methods=['GET', 'POST'])
+def testcaptcha():
+    if request.method == "POST":
+        if captcha.validate():
+            return "success"
+        else:
+            return "fail"
+
+    return render_template("testcaptcha.html")'''
 
 if __name__ == '__main__':
     app.run(debug=True)
