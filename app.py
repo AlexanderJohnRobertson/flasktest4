@@ -251,5 +251,143 @@ def testcaptcha():
 
     return render_template("testcaptcha.html")'''
 
+@app.route('/changepassword', methods=['GET', 'POST'])
+def changepassword():
+    #globalUsername = globalUsername
+    if request.method == 'POST':
+        username = request.form['username']
+        password = request.form['password']
+        oldPassword = request.form['oldPassword']
+        confirmPassword = request.form['confirmPassword']
+        if not username:
+            flash('Username is required!')
+        elif not password:
+            flash('Password is required!')
+        else:
+            try:
+                database = r"database.db"
+                conn = None
+                conn = sqlite3.connect(database)
+                cur = conn.cursor()
+                #cur = mysql.connection.cursor()
+                #cur.execute('SELECT * FROM users WHERE username = %s AND password = %s', (username, password))
+                cur.execute('SELECT * FROM users WHERE username = ?', (username,))
+                user = cur.fetchall()
+                usertuple = user[0]
+                userpwd = usertuple[1]
+                print("User:", usertuple)
+                cur.close()
+                if not user or userpwd != oldPassword:
+                    flash('Username does not exist or original password is incorrect!')
+                else:
+                    if password != confirmPassword:
+                        flash('Passwords do not match!')
+                    else:
+                        cur = conn.cursor()
+                        cur.execute('UPDATE users SET password = ? WHERE username = ?', (password, username))
+                        conn.commit()
+                        cur.close()
+                        print(username)
+                        return redirect(url_for('changepasswordsuccess', globalUsername = username))
+            except IndexError:
+                flash('Username or Password is incorrect!')
+
+    return render_template('changepassword.html')
+
+@app.route('/changepasswordsuccess/<globalUsername>')
+def changepasswordsuccess(globalUsername):
+    globalUsername = globalUsername
+    return render_template('changepasswordsuccess.html', globalUsername = globalUsername)
+
+@app.route('/changeusername', methods=['GET', 'POST'])
+def changeusername():
+    #globalUsername = globalUsername
+    if request.method == 'POST':
+        username = request.form['username']
+        newUsername = request.form['newUsername']
+        confirmUsername = request.form['confirmUsername']
+        password = request.form['password']
+        if not username:
+            flash('Username is required!')
+        elif not password:
+            flash('Password is required!')
+        else:
+            try:
+                database = r"database.db"
+                conn = None
+                conn = sqlite3.connect(database)
+                cur = conn.cursor()
+                #cur = mysql.connection.cursor()
+                #cur.execute('SELECT * FROM users WHERE username = %s AND password = %s', (username, password))
+                cur.execute('SELECT * FROM users WHERE username = ?', (username,))
+                user = cur.fetchall()
+                usertuple = user[0]
+                userpwd = usertuple[1]
+                print("User:", usertuple)
+                cur.close()
+                if not user or newUsername != confirmUsername or userpwd != password or not newUsername or not confirmUsername:
+                    flash('Original Username does not exist, usernames do not match or password is incorrect!')
+                else:
+                    cur = conn.cursor()
+                    cur.execute('UPDATE users SET username = ? WHERE username = ?', (newUsername, username))
+                    conn.commit()
+                    cur.close()
+                    print(username)
+                    return redirect(url_for('changeusernamesuccess', globalUsername = newUsername))
+            except IndexError:
+                flash('Username or Password is incorrect!')
+
+    return render_template('changeusername.html')
+
+@app.route('/changeusernamesuccess/<globalUsername>')
+def changeusernamesuccess(globalUsername):
+    globalUsername = globalUsername
+    return render_template('changeusernamesuccess.html', globalUsername = globalUsername)
+
+@app.route('/deleteaccount', methods=['GET', 'POST'])
+def deleteaccount():
+    #globalUsername = globalUsername
+    if request.method == 'POST':
+        username = request.form['username']
+        password = request.form['password']
+        confirmPassword = request.form['confirmPassword']
+        if not username:
+            flash('Username is required!')
+        elif not password:
+            flash('Password is required!')
+        else:
+            try:
+                database = r"database.db"
+                conn = None
+                conn = sqlite3.connect(database)
+                cur = conn.cursor()
+                #cur = mysql.connection.cursor()
+                #cur.execute('SELECT * FROM users WHERE username = %s AND password = %s', (username, password))
+                cur.execute('SELECT * FROM users WHERE username = ?', (username,))
+                user = cur.fetchall()
+                usertuple = user[0]
+                userpwd = usertuple[1]
+                print("User:", usertuple)
+                cur.close()
+                if not user or userpwd != password or password != confirmPassword or not password or not confirmPassword:
+                    flash('Username does not exist or password is incorrect!')
+                else:
+                    cur = conn.cursor()
+                    cur.execute('DELETE FROM users WHERE username = ?', (username,))
+                    conn.commit()
+                    cur.close()
+                    print(username)
+                    return redirect(url_for('deleteaccountsuccess', globalUsername = username))
+            except IndexError:
+                flash('Username or Password is incorrect!')
+
+    return render_template('deleteaccount.html')
+
+@app.route('/deleteaccountsuccess/<globalUsername>')
+def deleteaccountsuccess(globalUsername):
+    globalUsername = globalUsername
+    return render_template('deleteaccountsuccess.html', globalUsername = globalUsername)
+
+
 if __name__ == '__main__':
     app.run(debug=True)

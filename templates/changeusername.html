@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>{% block title %} Change Username {% endblock %}</h1>
+
+    <form method="post">
+        <label for="title">Old Username:</label>
+        <br>
+        <input type="text" name="username"
+               placeholder="Username"
+               value="{{ request.form['username'] }}"></input>
+        <br>
+
+        <label for="newUsername">New Username</label>
+        <br>
+        <input type="text" name="newUsername"
+               placeholder="New Username"
+               value="{{ request.form['newUsername'] }}">
+        <br>
+        <label for="confirmUsername">Confirm New Username</label>
+        <br>
+        <input type="text" name="confirmUsername"
+               placeholder="Confirm New Username"
+               value="{{ request.form['confirmUsername'] }}">
+        <br>
+        <label for="Password">Password</label>
+        <br>
+        <input type="password" name="password"
+               placeholder="Password"
+               value="{{ request.form['password'] }}">
+        <br>
+
+        <button type="submit">Submit</button>
+    </form>
+
+
+    </form>
+{% endblock %}
+
