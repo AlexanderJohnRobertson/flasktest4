@@ -231,7 +231,6 @@ def createaccount():
                         cur.execute('INSERT INTO users VALUES(?, ?, ?)', (username, password, administrator))
                         conn.commit()
                         cur.close()
-                        print(username)
                         return redirect(url_for('createaccountsuccess', globalUsername = username))
             except IndexError:
                 flash('Username or Password is incorrect!')
@@ -276,7 +275,6 @@ def changepassword():
                 user = cur.fetchall()
                 usertuple = user[0]
                 userpwd = usertuple[1]
-                print("User:", usertuple)
                 cur.close()
                 if not user or userpwd != oldPassword:
                     flash('Username does not exist or original password is incorrect!')
@@ -288,7 +286,6 @@ def changepassword():
                         cur.execute('UPDATE users SET password = ? WHERE username = ?', (password, username))
                         conn.commit()
                         cur.close()
-                        print(username)
                         return redirect(url_for('changepasswordsuccess', globalUsername = username))
             except IndexError:
                 flash('Username or Password is incorrect!')
@@ -324,7 +321,6 @@ def changeusername():
                 user = cur.fetchall()
                 usertuple = user[0]
                 userpwd = usertuple[1]
-                print("User:", usertuple)
                 cur.close()
                 if not user or newUsername != confirmUsername or userpwd != password or not newUsername or not confirmUsername:
                     flash('Original Username does not exist, usernames do not match or password is incorrect!')
@@ -333,7 +329,6 @@ def changeusername():
                     cur.execute('UPDATE users SET username = ? WHERE username = ?', (newUsername, username))
                     conn.commit()
                     cur.close()
-                    print(username)
                     return redirect(url_for('changeusernamesuccess', globalUsername = newUsername))
             except IndexError:
                 flash('Username or Password is incorrect!')
@@ -368,7 +363,6 @@ def deleteaccount():
                 user = cur.fetchall()
                 usertuple = user[0]
                 userpwd = usertuple[1]
-                print("User:", usertuple)
                 cur.close()
                 if not user or userpwd != password or password != confirmPassword or not password or not confirmPassword:
                     flash('Username does not exist or password is incorrect!')
@@ -377,7 +371,6 @@ def deleteaccount():
                     cur.execute('DELETE FROM users WHERE username = ?', (username,))
                     conn.commit()
                     cur.close()
-                    print(username)
                     return redirect(url_for('deleteaccountsuccess', globalUsername = username))
             except IndexError:
                 flash('Username or Password is incorrect!')
@@ -429,24 +422,25 @@ def addproducts():
                 tupuleUser = user[0]
                 adminstatus = tupuleUser[2]
                 paswd = tupuleUser[1]
-                usr = tupuleUser[0]
-                print("Product:", product)
-                print("User:", usr)
-                print("Admin Status:", adminstatus)
-                if paswd != password or not paswd:
-                    flash('Username or Password is incorrect!')
-                elif adminstatus != "Yes":
-                    flash('Only administrators can add new products.')
-                else:
-                    if product:
-                        flash('Product already exists!')
+                #usr = tupuleUser[0]
+                try:
+                    price = float(price)
+                    price = str(round(price, 2))
+                    if paswd != password or not paswd:
+                        flash('Username or Password is incorrect!')
+                    elif adminstatus != "Yes":
+                        flash('Only administrators can add new products.')
                     else:
-                        cur = conn.cursor()
-                        cur.execute('INSERT INTO products VALUES(?, ?, ?, ?, ?)', (productID, name, quantity, price, image))
-                        conn.commit()
-                        cur.close()
-                        print(name)
-                        return redirect(url_for('addproductssuccess'))
+                        if product:
+                            flash('Product already exists!')
+                        else:
+                            cur = conn.cursor()
+                            cur.execute('INSERT INTO products VALUES(?, ?, ?, ?, ?)', (productID, name, quantity, price, image))
+                            conn.commit()
+                            cur.close()
+                            return redirect(url_for('addproductssuccess'))
+                except ValueError:
+                    flash('Price must be a number!')
             except IndexError:
                 flash('Product already exists!')
 
@@ -496,23 +490,24 @@ def updateproducts():
                 tupuleUser = user[0]
                 adminstatus = tupuleUser[2]
                 paswd = tupuleUser[1]
-                usr = tupuleUser[0]
-                print("Product:", product)
-                print("User:", usr)
-                print("Admin Status:", adminstatus)
-                if paswd != password or not paswd:
-                    flash('Username or Password is incorrect!')
-                elif adminstatus != "Yes":
-                    flash('Only administrators can update products.')
-                elif product == []:
-                    flash('Product does not exist!')
-                else:
-                    cur = conn.cursor()
-                    cur.execute('UPDATE products SET productName = ?, quantity = ?, price = ?, prodImage = ? WHERE productID = ?', (name, quantity, price, image, productID))
-                    conn.commit()
-                    cur.close()
-                    print(name)
-                    return redirect(url_for('updateproductssuccess'))
+                #usr = tupuleUser[0]
+                try:
+                    price = float(price)
+                    price = str(round(price, 2))
+                    if paswd != password or not paswd:
+                        flash('Username or Password is incorrect!')
+                    elif adminstatus != "Yes":
+                        flash('Only administrators can update products.')
+                    elif product == []:
+                        flash('Product does not exist!')
+                    else:
+                        cur = conn.cursor()
+                        cur.execute('UPDATE products SET productName = ?, quantity = ?, price = ?, prodImage = ? WHERE productID = ?', (name, quantity, price, image, productID))
+                        conn.commit()
+                        cur.close()
+                        return redirect(url_for('updateproductssuccess'))
+                except ValueError:
+                    flash('Price must be a number!')
             except IndexError:
                 flash('Product does not exist!')
 
@@ -550,10 +545,6 @@ def deleteproducts():
                 tupuleUser = user[0]
                 adminstatus = tupuleUser[2]
                 paswd = tupuleUser[1]
-                usr = tupuleUser[0]
-                print("Product:", product)
-                print("User:", usr)
-                print("Admin Status:", adminstatus)
                 if paswd != password or not paswd:
                     flash('Username or Password is incorrect!')
                 elif adminstatus != "Yes":
@@ -565,7 +556,6 @@ def deleteproducts():
                     cur.execute('DELETE FROM products WHERE productID = ?', (productID,))
                     conn.commit()
                     cur.close()
-                    print(productID)
                     return redirect(url_for('deleteproductssuccess'))
             except IndexError:
                 flash('Product does not exist!')
