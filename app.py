@@ -205,6 +205,7 @@ def createaccount():
         username = request.form['username']
         password = request.form['password']
         confirmPassword = request.form['confirmPassword']
+        administrator = "No"
         if not username:
             flash('Username is required!')
         elif not password:
@@ -227,7 +228,7 @@ def createaccount():
                         flash('Passwords do not match!')
                     else:
                         cur = conn.cursor()
-                        cur.execute('INSERT INTO users VALUES(?, ?)', (username, password))
+                        cur.execute('INSERT INTO users VALUES(?, ?, ?)', (username, password, administrator))
                         conn.commit()
                         cur.close()
                         print(username)
@@ -388,6 +389,196 @@ def deleteaccountsuccess(globalUsername):
     globalUsername = globalUsername
     return render_template('deleteaccountsuccess.html', globalUsername = globalUsername)
 
+@app.route('/addproducts', methods=['GET', 'POST'])
+def addproducts():
+    if request.method == 'POST':
+        productID = request.form['productID']
+        name = request.form['name']
+        quantity = request.form['quantity']
+        price = request.form['price']
+        image = request.form['image']
+        username = request.form['username']
+        password = request.form['password']
+        if not productID:
+            flash('Product ID is required!')
+        elif not name:
+            flash('Name is required!')
+        elif not price:
+            flash('Price is required!')
+        elif not quantity:
+            flash('Quantity is required!')
+        elif not image:
+            flash('Image URL is required!')
+        elif not username:
+            flash('Username is required!')
+        elif not password:
+            flash('Password is required!')
+        else:
+            try:
+                database = r"database.db"
+                conn = None
+                conn = sqlite3.connect(database)
+                cur = conn.cursor()
+                #cur = mysql.connection.cursor()
+                #cur.execute('SELECT * FROM users WHERE username = %s AND password = %s', (username, password))
+                cur.execute('SELECT * FROM products WHERE productID = ?', (productID,))
+                product = cur.fetchall()
+                cur.execute('SELECT * FROM users WHERE username = ?', (username,))
+                user = cur.fetchall()
+                cur.close()
+                tupuleUser = user[0]
+                adminstatus = tupuleUser[2]
+                paswd = tupuleUser[1]
+                usr = tupuleUser[0]
+                print("Product:", product)
+                print("User:", usr)
+                print("Admin Status:", adminstatus)
+                if paswd != password or not paswd:
+                    flash('Username or Password is incorrect!')
+                elif adminstatus != "Yes":
+                    flash('Only administrators can add new products.')
+                else:
+                    if product:
+                        flash('Product already exists!')
+                    else:
+                        cur = conn.cursor()
+                        cur.execute('INSERT INTO products VALUES(?, ?, ?, ?, ?)', (productID, name, quantity, price, image))
+                        conn.commit()
+                        cur.close()
+                        print(name)
+                        return redirect(url_for('addproductssuccess'))
+            except IndexError:
+                flash('Product already exists!')
+
+    return render_template('addproducts.html')
+
+@app.route('/addproductsuccess')
+def addproductssuccess():
+    return render_template('addproductssuccess.html')
+
+@app.route('/updateproducts', methods=['GET', 'POST'])
+def updateproducts():
+    if request.method == 'POST':
+        productID = request.form['productID']
+        name = request.form['name']
+        quantity = request.form['quantity']
+        price = request.form['price']
+        image = request.form['image']
+        username = request.form['username']
+        password = request.form['password']
+        if not productID:
+            flash('Product ID is required!')
+        elif not name:
+            flash('Name is required!')
+        elif not price:
+            flash('Price is required!')
+        elif not quantity:
+            flash('Quantity is required!')
+        elif not image:
+            flash('Image URL is required!')
+        elif not username:
+            flash('Username is required!')
+        elif not password:
+            flash('Password is required!')
+        else:
+            try:
+                database = r"database.db"
+                conn = None
+                conn = sqlite3.connect(database)
+                cur = conn.cursor()
+                #cur = mysql.connection.cursor()
+                #cur.execute('SELECT * FROM users WHERE username = %s AND password = %s', (username, password))
+                cur.execute('SELECT * FROM products WHERE productID = ?', (productID,))
+                product = cur.fetchall()
+                cur.execute('SELECT * FROM users WHERE username = ?', (username,))
+                user = cur.fetchall()
+                cur.close()
+                tupuleUser = user[0]
+                adminstatus = tupuleUser[2]
+                paswd = tupuleUser[1]
+                usr = tupuleUser[0]
+                print("Product:", product)
+                print("User:", usr)
+                print("Admin Status:", adminstatus)
+                if paswd != password or not paswd:
+                    flash('Username or Password is incorrect!')
+                elif adminstatus != "Yes":
+                    flash('Only administrators can update products.')
+                elif product == []:
+                    flash('Product does not exist!')
+                else:
+                    cur = conn.cursor()
+                    cur.execute('UPDATE products SET productName = ?, quantity = ?, price = ?, prodImage = ? WHERE productID = ?', (name, quantity, price, image, productID))
+                    conn.commit()
+                    cur.close()
+                    print(name)
+                    return redirect(url_for('updateproductssuccess'))
+            except IndexError:
+                flash('Product does not exist!')
+
+    return render_template('updateproducts.html')
+
+@app.route('/updateproductsuccess')
+def updateproductssuccess():
+    return render_template('updateproductssuccess.html')
+
+@app.route('/deleteproducts', methods=['GET', 'POST'])
+def deleteproducts():
+    if request.method == 'POST':
+        productID = request.form['productID']
+        username = request.form['username']
+        password = request.form['password']
+        if not productID:
+            flash('Product ID is required!')
+        elif not username:
+            flash('Username is required!')
+        elif not password:
+            flash('Password is required!')
+        else:
+            try:
+                database = r"database.db"
+                conn = None
+                conn = sqlite3.connect(database)
+                cur = conn.cursor()
+                #cur = mysql.connection.cursor()
+                #cur.execute('SELECT * FROM users WHERE username = %s AND password = %s', (username, password))
+                cur.execute('SELECT * FROM products WHERE productID = ?', (productID,))
+                product = cur.fetchall()
+                cur.execute('SELECT * FROM users WHERE username = ?', (username,))
+                user = cur.fetchall()
+                cur.close()
+                tupuleUser = user[0]
+                adminstatus = tupuleUser[2]
+                paswd = tupuleUser[1]
+                usr = tupuleUser[0]
+                print("Product:", product)
+                print("User:", usr)
+                print("Admin Status:", adminstatus)
+                if paswd != password or not paswd:
+                    flash('Username or Password is incorrect!')
+                elif adminstatus != "Yes":
+                    flash('Only administrators can delete products.')
+                elif product == []:
+                    flash('Product does not exist!')
+                else:
+                    cur = conn.cursor()
+                    cur.execute('DELETE FROM products WHERE productID = ?', (productID,))
+                    conn.commit()
+                    cur.close()
+                    print(productID)
+                    return redirect(url_for('deleteproductssuccess'))
+            except IndexError:
+                flash('Product does not exist!')
+
+    return render_template('deleteproducts.html')
+
+@app.route('/deleteproductssuccess')
+def deleteproductssuccess():
+    return render_template('deleteproductssuccess.html')
+
+@app.route('/logout')
+def logout():
+    return render_template('logout.html')
 
 if __name__ == '__main__':
     app.run(debug=True)

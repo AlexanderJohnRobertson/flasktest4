@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>{% block title %} Delete Products {% endblock %}</h1>
+    <form method="post">
+        <label for="productID">Product ID:</label>
+        <br>
+        <input type="number" name="productID"
+               placeholder="Product ID"
+               value="{{ request.form['productID'] }}"></input>
+        <br>
+
+          <label for="username">Administrator Username</label>
+        <br>
+        <input type="text" name="username"
+               placeholder="Username"
+               value="{{ request.form['username'] }}">
+        <br>
+
+          <label for="password">Administrator Password</label>
+        <br>
+        <input type="password" name="password"
+               placeholder="Password"
+               value="{{ request.form['password'] }}">
+        <br>
+
+        <button type="submit">Delete Product</button>
+    </form>
+{% endblock %}
